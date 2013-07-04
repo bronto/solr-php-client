@@ -35,13 +35,14 @@
  * @author Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr\HttpTransport;
 // Require Apache_Solr_HttpTransport_Abstract
 require_once(dirname(__FILE__) . '/Abstract.php');
 
 /**
  * HTTP Transport implemenation that uses the builtin http URL wrappers and file_get_contents
  */
-class Apache_Solr_HttpTransport_FileGetContents extends Apache_Solr_HttpTransport_Abstract
+class FileGetContents extends \Apache_Solr_HttpTransport_Abstract
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -233,6 +234,6 @@ class Apache_Solr_HttpTransport_FileGetContents extends Apache_Solr_HttpTranspor
 			}
 		}
 		
-		return new Apache_Solr_HttpTransport_Response($status, $contentType, $rawResponse);
+		return new \Apache_Solr_HttpTransport_Response($status, $contentType, $rawResponse);
 	}
 }

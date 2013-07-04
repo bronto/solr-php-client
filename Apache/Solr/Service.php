@@ -486,7 +486,7 @@ class Service
 		{
 			require_once(dirname(__FILE__) . '/HttpTransport/FileGetContents.php');
 
-			$this->_httpTransport = new \Apache_Solr_HttpTransport_FileGetContents();
+			$this->_httpTransport = new \PTC\Apache\Solr\HttpTransport\FileGetContents();
 		}
 
 		return $this->_httpTransport;

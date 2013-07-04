@@ -71,7 +71,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$httpTransport = $fixture->getHttpTransport();
 		
 		$this->assertInstanceOf('Apache_Solr_HttpTransport_Interface', $httpTransport, 'Default http transport does not implement interface');
-		$this->assertInstanceOf('Apache_Solr_HttpTransport_FileGetContents', $httpTransport, 'Default http transport is not URL Wrapper implementation');
+		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransport\FileGetContents', $httpTransport, 'Default http transport is not URL Wrapper implementation');
 	}
 	
 	
