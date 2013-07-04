@@ -137,7 +137,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testSetNamedListTreatmentInvalidArgumentException()
 	{
@@ -179,7 +179,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testSetEmptyHost()
 	{
@@ -219,7 +219,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testSetPortWithInvalidArgument()
 	{
@@ -901,7 +901,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testExtractWithInvalidParams()
 	{
@@ -917,7 +917,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testExtractFromStringWithInvalidParams()
 	{
@@ -957,7 +957,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testExtractWithEmptyFile()
 	{
@@ -1073,7 +1073,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testExtractFromUrlWithInvalidParams()
 	{
@@ -1121,7 +1121,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testSearchWithInvalidParams()
 	{
@@ -1169,7 +1169,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_InvalidArgumentException
+	 * @expectedException \PTC\Apache\Solr\InvalidArgumentException
 	 */
 	public function testSearchWithInvalidMethod()
 	{

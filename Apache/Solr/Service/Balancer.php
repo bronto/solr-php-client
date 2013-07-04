@@ -190,7 +190,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 	}
@@ -218,7 +218,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 		else if (is_string($service))
@@ -258,7 +258,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Writeable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Writeable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 	}
@@ -286,7 +286,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 		else if (is_string($service))

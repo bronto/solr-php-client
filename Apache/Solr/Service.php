@@ -389,7 +389,7 @@ class Apache_Solr_Service
 		//Use the provided host or use the default
 		if (empty($host))
 		{
-			throw new Apache_Solr_InvalidArgumentException('Host parameter is empty');
+			throw new \PTC\Apache\Solr\InvalidArgumentException('Host parameter is empty');
 		}
 		else
 		{
@@ -426,7 +426,7 @@ class Apache_Solr_Service
 
 		if ($port <= 0)
 		{
-			throw new Apache_Solr_InvalidArgumentException('Port is not a valid port number');
+			throw new \PTC\Apache\Solr\InvalidArgumentException('Port is not a valid port number');
 		}
 		else
 		{
@@ -598,7 +598,7 @@ class Apache_Solr_Service
 				break;
 
 			default:
-				throw new Apache_Solr_InvalidArgumentException('Not a valid named list treatement option');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('Not a valid named list treatement option');
 		}
 	}
 
@@ -978,7 +978,7 @@ class Apache_Solr_Service
 		{
 			if (!is_array($params))
 			{
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1008,7 +1008,7 @@ class Apache_Solr_Service
 		}
 		else
 		{
-			throw new Apache_Solr_InvalidArgumentException("File '{$file}' is empty or could not be read");
+			throw new \PTC\Apache\Solr\InvalidArgumentException("File '{$file}' is empty or could not be read");
 		}
 	}
 	
@@ -1039,7 +1039,7 @@ class Apache_Solr_Service
 		{
 			if (!is_array($params))
 			{
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1102,7 +1102,7 @@ class Apache_Solr_Service
 		{
 			if (!is_array($params))
 			{
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1129,7 +1129,7 @@ class Apache_Solr_Service
 		}
 		else
 		{
-			throw new Apache_Solr_InvalidArgumentException("URL '{$url}' returned non 200 response code");
+			throw new \PTC\Apache\Solr\InvalidArgumentException("URL '{$url}' returned non 200 response code");
 		}
 	}
 
@@ -1175,7 +1175,7 @@ class Apache_Solr_Service
 			if (!is_array($params))
 			{
 				// params was specified but was not an array - invalid
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1205,7 +1205,7 @@ class Apache_Solr_Service
 		}
 		else
 		{
-			throw new Apache_Solr_InvalidArgumentException("Unsupported method '$method', please use the Apache_Solr_Service::METHOD_* constants");
+			throw new \PTC\Apache\Solr\InvalidArgumentException("Unsupported method '$method', please use the Apache_Solr_Service::METHOD_* constants");
 		}
 	}
 }
