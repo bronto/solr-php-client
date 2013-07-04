@@ -1,0 +1,15 @@
+{
+    "name": "mhitza/solr-php-client",
+    "description": "Client for the Apache Solr search server",
+    "authors": [
+        {
+            "name": "Marius Ghita",
+            "email": "mhitza@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "PTC\\Apache": "Apache/"
+        }
+    }
+}
