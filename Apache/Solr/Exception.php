@@ -35,7 +35,9 @@
  * @author Donovan Jimenez
  */
 
-class Apache_Solr_Exception extends Exception
+namespace PTC\Apache\Solr;
+
+class Exception extends \Exception
 {
 	/**
 	 * SVN Revision meta data for this class

@@ -35,7 +35,7 @@
  * @author Donovan Jimenez
  */
 
-class Apache_Solr_InvalidArgumentException extends Apache_Solr_Exception
+class Apache_Solr_InvalidArgumentException extends \PTC\Apache\Solr\Exception
 {
 	/**
 	 * SVN Revision meta data for this class

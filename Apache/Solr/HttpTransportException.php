@@ -37,7 +37,7 @@
 
 namespace PTC\Apache\Solr;
 
-class HttpTransportException extends \Apache_Solr_Exception
+class HttpTransportException extends \Exception
 {
 	/**
 	 * SVN Revision meta data for this class
