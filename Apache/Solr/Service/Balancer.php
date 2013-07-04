@@ -341,7 +341,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_NoServiceAvailableException('No read services were available');
+				throw new \PTC\Apache\Solr\NoServiceAvailableException('No read services were available');
 			}
 		}
 
@@ -393,7 +393,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_NoServiceAvailableException('No write services were available');
+				throw new \PTC\Apache\Solr\NoServiceAvailableException('No write services were available');
 			}
 		}
 
@@ -440,14 +440,14 @@ class Apache_Solr_Service_Balancer
 
 					if($backoff > $this->_backoffLimit)
 					{
-						throw new Apache_Solr_NoServiceAvailableException('No write services were available.  All timeouts exceeded.');
+						throw new \PTC\Apache\Solr\NoServiceAvailableException('No write services were available.  All timeouts exceeded.');
 					}
 
 				} while($this->_writeableServices[$this->_currentWriteService]->ping($backoff) === false);
 			}
 			else
 			{
-				throw new Apache_Solr_NoServiceAvailableException('No write services were available');
+				throw new \PTC\Apache\Solr\NoServiceAvailableException('No write services were available');
 			}
 		}
 
