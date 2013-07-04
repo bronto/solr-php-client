@@ -234,6 +234,6 @@ class FileGetContents extends \Apache_Solr_HttpTransport_Abstract
 			}
 		}
 		
-		return new \Apache_Solr_HttpTransport_Response($status, $contentType, $rawResponse);
+		return new \PTC\Apache\Solr\HttpTransport\Response($status, $contentType, $rawResponse);
 	}
 }

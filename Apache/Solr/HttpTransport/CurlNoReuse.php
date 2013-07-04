@@ -112,7 +112,7 @@ class CurlNoReuse extends \Apache_Solr_HttpTransport_Abstract
 		// close our curl session - we're done with it
 		curl_close($curl);
 
-		return new \Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performHeadRequest($url, $timeout = false)
@@ -166,7 +166,7 @@ class CurlNoReuse extends \Apache_Solr_HttpTransport_Abstract
 		// close our curl session - we're done with it
 		curl_close($curl);
 
-		return new \Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performPostRequest($url, $postData, $contentType, $timeout = false)
@@ -226,6 +226,6 @@ class CurlNoReuse extends \Apache_Solr_HttpTransport_Abstract
 		// close our curl session - we're done with it
 		curl_close($curl);
 
-		return new \Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 }

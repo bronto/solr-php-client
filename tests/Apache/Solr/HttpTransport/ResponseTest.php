@@ -68,27 +68,27 @@ class Apache_Solr_HttpTransport_ResponseTest extends PHPUnit_Framework_TestCase
 		
 	public static function get0Response()
 	{
-		return new Apache_Solr_HttpTransport_Response(null, null, null);
+		return new \PTC\Apache\Solr\HttpTransport\Response(null, null, null);
 	}
 	
 	public static function get200Response()
 	{
-		return new Apache_Solr_HttpTransport_Response(self::STATUS_CODE_200, self::CONTENT_TYPE_200, self::BODY_200);
+		return new \PTC\Apache\Solr\HttpTransport\Response(self::STATUS_CODE_200, self::CONTENT_TYPE_200, self::BODY_200);
 	}
 	
 	public static function get200ResponseWithDocuments()
 	{
-		return new Apache_Solr_HttpTransport_Response(self::STATUS_CODE_200, self::CONTENT_TYPE_200, self::BODY_200_WITH_DOCUMENTS);
+		return new \PTC\Apache\Solr\HttpTransport\Response(self::STATUS_CODE_200, self::CONTENT_TYPE_200, self::BODY_200_WITH_DOCUMENTS);
 	}
 	
 	public static function get400Response()
 	{
-		return new Apache_Solr_HttpTransport_Response(self::STATUS_CODE_400, self::CONTENT_TYPE_400, self::BODY_400);
+		return new \PTC\Apache\Solr\HttpTransport\Response(self::STATUS_CODE_400, self::CONTENT_TYPE_400, self::BODY_400);
 	}
 	
 	public static function get404Response()
 	{
-		return new Apache_Solr_HttpTransport_Response(self::STATUS_CODE_404, self::CONTENT_TYPE_404, self::BODY_404);
+		return new \PTC\Apache\Solr\HttpTransport\Response(self::STATUS_CODE_404, self::CONTENT_TYPE_404, self::BODY_404);
 	}
 		
 	public function testGetStatusCode()
@@ -111,7 +111,7 @@ class Apache_Solr_HttpTransport_ResponseTest extends PHPUnit_Framework_TestCase
 	
 	public function testGetStatusMessageWithUnknownCode()
 	{
-		$fixture = new Apache_Solr_HttpTransport_Response(499, null, null);
+		$fixture = new \PTC\Apache\Solr\HttpTransport\Response(499, null, null);
 		
 		$statusMessage = $fixture->getStatusMessage();
 		$this->assertEquals("Unknown Status", $statusMessage);
@@ -149,16 +149,16 @@ class Apache_Solr_HttpTransport_ResponseTest extends PHPUnit_Framework_TestCase
 		// test 4 of the most common status code responses, probably don't need
 		// to test all the codes we have
 		
-		$fixture = new Apache_Solr_HttpTransport_Response(null, null, null, null, null);
+		$fixture = new \PTC\Apache\Solr\HttpTransport\Response(null, null, null, null, null);
 		$this->assertEquals("Communication Error", $fixture->getStatusMessage(), 'Did not get correct default status message for status code 0');
 		
-		$fixture = new Apache_Solr_HttpTransport_Response(200, null, null, null, null);
+		$fixture = new \PTC\Apache\Solr\HttpTransport\Response(200, null, null, null, null);
 		$this->assertEquals("OK", $fixture->getStatusMessage(), 'Did not get correct default status message for status code 200');
 		
-		$fixture = new Apache_Solr_HttpTransport_Response(400, null, null, null, null);
+		$fixture = new \PTC\Apache\Solr\HttpTransport\Response(400, null, null, null, null);
 		$this->assertEquals("Bad Request", $fixture->getStatusMessage(), 'Did not get correct default status message for status code 400');
 		
-		$fixture = new Apache_Solr_HttpTransport_Response(404, null, null, null, null);
+		$fixture = new \PTC\Apache\Solr\HttpTransport\Response(404, null, null, null, null);
 		$this->assertEquals("Not Found", $fixture->getStatusMessage(), 'Did not get correct default status message for status code 404');
 	}
 }

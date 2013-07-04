@@ -95,7 +95,7 @@ class Response
 	 * @param boolean $createDocuments Whether to convert the documents json_decoded as stdClass instances to Apache_Solr_Document instances
 	 * @param boolean $collapseSingleValueArrays Whether to make multivalued fields appear as single values
 	 */
-	public function __construct(\Apache_Solr_HttpTransport_Response $response, $createDocuments = true, $collapseSingleValueArrays = true)
+	public function __construct(\PTC\Apache\Solr\HttpTransport\Response $response, $createDocuments = true, $collapseSingleValueArrays = true)
 	{
 		$this->_response = $response;
 		$this->_createDocuments = (bool) $createDocuments;

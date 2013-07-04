@@ -131,7 +131,7 @@ class Curl extends \Apache_Solr_HttpTransport_Abstract
 		$statusCode = curl_getinfo($this->_curl, CURLINFO_HTTP_CODE);
 		$contentType = curl_getinfo($this->_curl, CURLINFO_CONTENT_TYPE);
 
-		return new \Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performHeadRequest($url, $timeout = false)
@@ -162,7 +162,7 @@ class Curl extends \Apache_Solr_HttpTransport_Abstract
 		$statusCode = curl_getinfo($this->_curl, CURLINFO_HTTP_CODE);
 		$contentType = curl_getinfo($this->_curl, CURLINFO_CONTENT_TYPE);
 
-		return new \Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performPostRequest($url, $postData, $contentType, $timeout = false)
@@ -202,6 +202,6 @@ class Curl extends \Apache_Solr_HttpTransport_Abstract
 		$statusCode = curl_getinfo($this->_curl, CURLINFO_HTTP_CODE);
 		$contentType = curl_getinfo($this->_curl, CURLINFO_CONTENT_TYPE);
 
-		return new \Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 }
