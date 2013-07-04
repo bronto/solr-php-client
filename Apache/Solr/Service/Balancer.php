@@ -35,6 +35,7 @@
  * @author Donovan Jimenez, Dan Wolfe
  */
 
+namespace PTC\Apache\Solr\Service;
 // See Issue #1 (http://code.google.com/p/solr-php-client/issues/detail?id=1)
 // Doesn't follow typical include path conventions, but is more convenient for users
 require_once(dirname(dirname(__FILE__)) . '/Service.php');
@@ -46,7 +47,7 @@ require_once(dirname(dirname(__FILE__)) . '/NoServiceAvailableException.php');
  * 	routing of read / write operations
  * 	failover (on selection) for multiple read servers
  */
-class Apache_Solr_Service_Balancer
+class Balancer
 {
 	/**
 	 * SVN Revision meta data for this class
