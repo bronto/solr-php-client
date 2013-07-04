@@ -48,6 +48,6 @@ class Apache_Solr_HttpTransport_CurlTest extends Apache_Solr_HttpTransport_Abstr
 			$this->markTestSkipped("curl module is not enabled");
 		}
 		
-		return new Apache_Solr_HttpTransport_Curl();
+		return new \PTC\Apache\Solr\HttpTransport\Curl();
 	}
 }

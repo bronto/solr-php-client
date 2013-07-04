@@ -35,13 +35,14 @@
  * @author Timo Schmidt <timo.schmidt@aoemedia.de>, Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr\HttpTransport;
 // Require Apache_Solr_HttpTransport_Abstract
 require_once(dirname(__FILE__) . '/Abstract.php');
 
 /**
  * A Curl based HTTP transport. Uses a single curl session for all requests.
  */
-class Apache_Solr_HttpTransport_Curl extends Apache_Solr_HttpTransport_Abstract
+class Curl extends \Apache_Solr_HttpTransport_Abstract
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -130,7 +131,7 @@ class Apache_Solr_HttpTransport_Curl extends Apache_Solr_HttpTransport_Abstract
 		$statusCode = curl_getinfo($this->_curl, CURLINFO_HTTP_CODE);
 		$contentType = curl_getinfo($this->_curl, CURLINFO_CONTENT_TYPE);
 
-		return new Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performHeadRequest($url, $timeout = false)
@@ -161,7 +162,7 @@ class Apache_Solr_HttpTransport_Curl extends Apache_Solr_HttpTransport_Abstract
 		$statusCode = curl_getinfo($this->_curl, CURLINFO_HTTP_CODE);
 		$contentType = curl_getinfo($this->_curl, CURLINFO_CONTENT_TYPE);
 
-		return new Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performPostRequest($url, $postData, $contentType, $timeout = false)
@@ -201,6 +202,6 @@ class Apache_Solr_HttpTransport_Curl extends Apache_Solr_HttpTransport_Abstract
 		$statusCode = curl_getinfo($this->_curl, CURLINFO_HTTP_CODE);
 		$contentType = curl_getinfo($this->_curl, CURLINFO_CONTENT_TYPE);
 
-		return new Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 }

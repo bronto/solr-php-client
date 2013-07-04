@@ -48,6 +48,6 @@ class Apache_Solr_HttpTransport_CurlNoReuseTest extends Apache_Solr_HttpTranspor
 			$this->markTestSkipped("curl module is not enabled");
 		}
 		
-		return new Apache_Solr_HttpTransport_CurlNoReuse();
+		return new \PTC\Apache\Solr\HttpTransport\CurlNoReuse();
 	}
 }

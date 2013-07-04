@@ -35,6 +35,7 @@
  * @author Donovan Jimenez, Dan Wolfe
  */
 
+namespace PTC\Apache\Solr\Service;
 // See Issue #1 (http://code.google.com/p/solr-php-client/issues/detail?id=1)
 // Doesn't follow typical include path conventions, but is more convenient for users
 require_once(dirname(dirname(__FILE__)) . '/Service.php');
@@ -46,7 +47,7 @@ require_once(dirname(dirname(__FILE__)) . '/NoServiceAvailableException.php');
  * 	routing of read / write operations
  * 	failover (on selection) for multiple read servers
  */
-class Apache_Solr_Service_Balancer
+class Balancer
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -90,7 +91,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	static public function escape($value)
 	{
-		return Apache_Solr_Service::escape($value);
+		return \PTC\Apache\Solr\Service::escape($value);
 	}
 
 	/**
@@ -101,7 +102,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	static public function escapePhrase($value)
 	{
-		return Apache_Solr_Service::escapePhrase($value);
+		return \PTC\Apache\Solr\Service::escapePhrase($value);
 	}
 
 	/**
@@ -112,7 +113,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	static public function phrase($value)
 	{
-		return Apache_Solr_Service::phrase($value);
+		return \PTC\Apache\Solr\Service::phrase($value);
 	}
 
 	/**
@@ -190,7 +191,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 	}
@@ -218,7 +219,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 		else if (is_string($service))
@@ -242,7 +243,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	public function addWriteService($service)
 	{
-		if ($service instanceof Apache_Solr_Service)
+		if ($service instanceof \PTC\Apache\Solr\Service)
 		{
 			$id = $this->_getServiceId($service->getHost(), $service->getPort(), $service->getPath());
 
@@ -258,7 +259,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Writeable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Writeable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 	}
@@ -274,7 +275,7 @@ class Apache_Solr_Service_Balancer
 	{
 		$id = '';
 
-		if ($service instanceof Apache_Solr_Service)
+		if ($service instanceof \PTC\Apache\Solr\Service)
 		{
 			$id = $this->_getServiceId($service->getHost(), $service->getPort(), $service->getPath());
 		}
@@ -286,7 +287,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('A Readable Service description array does not have all required elements of host, port, and path');
 			}
 		}
 		else if (is_string($service))
@@ -332,7 +333,7 @@ class Apache_Solr_Service_Balancer
 				if (is_array($service))
 				{
 					//convert the array definition to a client object
-					$service = new Apache_Solr_Service($service['host'], $service['port'], $service['path']);
+					$service = new \PTC\Apache\Solr\Service($service['host'], $service['port'], $service['path']);
 					$this->_readableServices[$id] = $service;
 				}
 
@@ -341,7 +342,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_NoServiceAvailableException('No read services were available');
+				throw new \PTC\Apache\Solr\NoServiceAvailableException('No read services were available');
 			}
 		}
 
@@ -385,7 +386,7 @@ class Apache_Solr_Service_Balancer
 				if (is_array($service))
 				{
 					//convert the array definition to a client object
-					$service = new Apache_Solr_Service($service['host'], $service['port'], $service['path']);
+					$service = new \PTC\Apache\Solr\Service($service['host'], $service['port'], $service['path']);
 					$this->_writeableServices[$id] = $service;
 				}
 
@@ -393,7 +394,7 @@ class Apache_Solr_Service_Balancer
 			}
 			else
 			{
-				throw new Apache_Solr_NoServiceAvailableException('No write services were available');
+				throw new \PTC\Apache\Solr\NoServiceAvailableException('No write services were available');
 			}
 		}
 
@@ -430,7 +431,7 @@ class Apache_Solr_Service_Balancer
 					if (is_array($service))
 					{
 						//convert the array definition to a client object
-						$service = new Apache_Solr_Service($service['host'], $service['port'], $service['path']);
+						$service = new \PTC\Apache\Solr\Service($service['host'], $service['port'], $service['path']);
 						$this->_writeableServices[$id] = $service;
 					}
 
@@ -440,14 +441,14 @@ class Apache_Solr_Service_Balancer
 
 					if($backoff > $this->_backoffLimit)
 					{
-						throw new Apache_Solr_NoServiceAvailableException('No write services were available.  All timeouts exceeded.');
+						throw new \PTC\Apache\Solr\NoServiceAvailableException('No write services were available.  All timeouts exceeded.');
 					}
 
 				} while($this->_writeableServices[$this->_currentWriteService]->ping($backoff) === false);
 			}
 			else
 			{
-				throw new Apache_Solr_NoServiceAvailableException('No write services were available');
+				throw new \PTC\Apache\Solr\NoServiceAvailableException('No write services were available');
 			}
 		}
 

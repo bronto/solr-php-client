@@ -42,27 +42,27 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 {
 	static public function get0Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get0Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get0Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get200Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get200Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get200Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get200ResponseWithDocuments($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get200ResponseWithDocuments(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get200ResponseWithDocuments(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get400Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get400Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get400Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get404Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get404Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get404Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	public function testConstuctorWithValidBodyAndHeaders()
@@ -107,7 +107,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Apache_Solr_ParserException
+	 * @expectedException \PTC\Apache\Solr\ParserException
 	 */
 	public function testMagicGetWith0Response()
 	{
@@ -121,7 +121,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Apache_Solr_ParserException
+	 * @expectedException \PTC\Apache\Solr\ParserException
 	 */
 	public function testMagicGetWith400Response()
 	{
@@ -135,7 +135,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Apache_Solr_ParserException
+	 * @expectedException \PTC\Apache\Solr\ParserException
 	 */
 	public function testMagicGetWith404Response()
 	{
@@ -153,7 +153,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 		$fixture = self::get200ResponseWithDocuments();
 
 		$this->assertTrue(count($fixture->response->docs) > 0, 'There are not 1 or more documents, cannot test');
-		$this->assertInstanceOf('Apache_Solr_Document', $fixture->response->docs[0], 'The first document is not of type Apache_Solr_Document');
+		$this->assertInstanceOf('\PTC\Apache\Solr\Document', $fixture->response->docs[0], 'The first document is not of type Apache_Solr_Document');
 	}
 	
 	public function testDontCreateDocuments()

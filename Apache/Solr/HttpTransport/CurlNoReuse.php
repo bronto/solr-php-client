@@ -35,6 +35,7 @@
  * @author Timo Schmidt <timo.schmidt@aoemedia.de>, Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr\HttpTransport;
 // Require Apache_Solr_HttpTransport_Abstract
 require_once(dirname(__FILE__) . '/Abstract.php');
 
@@ -43,7 +44,7 @@ require_once(dirname(__FILE__) . '/Abstract.php');
  * every request. This isn't the recommended way to use curl, but some version of
  * PHP have memory issues.
  */
-class Apache_Solr_HttpTransport_CurlNoReuse extends Apache_Solr_HttpTransport_Abstract
+class CurlNoReuse extends \Apache_Solr_HttpTransport_Abstract
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -111,7 +112,7 @@ class Apache_Solr_HttpTransport_CurlNoReuse extends Apache_Solr_HttpTransport_Ab
 		// close our curl session - we're done with it
 		curl_close($curl);
 
-		return new Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performHeadRequest($url, $timeout = false)
@@ -165,7 +166,7 @@ class Apache_Solr_HttpTransport_CurlNoReuse extends Apache_Solr_HttpTransport_Ab
 		// close our curl session - we're done with it
 		curl_close($curl);
 
-		return new Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 
 	public function performPostRequest($url, $postData, $contentType, $timeout = false)
@@ -225,6 +226,6 @@ class Apache_Solr_HttpTransport_CurlNoReuse extends Apache_Solr_HttpTransport_Ab
 		// close our curl session - we're done with it
 		curl_close($curl);
 
-		return new Apache_Solr_HttpTransport_Response($statusCode, $contentType, $responseBody);
+		return new \PTC\Apache\Solr\HttpTransport\Response($statusCode, $contentType, $responseBody);
 	}
 }

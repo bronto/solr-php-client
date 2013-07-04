@@ -35,7 +35,8 @@
  * @author Donovan Jimenez
  */
 
-class Apache_Solr_ParserException extends Apache_Solr_Exception
+namespace PTC\Apache\Solr;
+class ParserException extends Exception
 {
 	/**
 	 * SVN Revision meta data for this class

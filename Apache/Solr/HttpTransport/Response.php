@@ -35,12 +35,13 @@
  * @author Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr\HttpTransport;
 /**
  * Represents the required pieces of an HTTP response provided by HTTP transport
  * implementations and then consumed by the Apache_Solr_Response class which provides
  * decoding
  */
-class Apache_Solr_HttpTransport_Response
+class Response
 {
 	/**
 	 * Status Messages indexed by Status Code

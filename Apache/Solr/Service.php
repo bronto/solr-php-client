@@ -35,6 +35,7 @@
  * @author Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr;
 // See Issue #1 (http://code.google.com/p/solr-php-client/issues/detail?id=1)
 // Doesn't follow typical include path conventions, but is more convenient for users
 require_once(dirname(__FILE__) . '/Exception.php');
@@ -76,7 +77,7 @@ require_once(dirname(__FILE__) . '/HttpTransport/Interface.php');
  * ...
  * </code>
  */
-class Apache_Solr_Service
+class Service
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -331,11 +332,11 @@ class Apache_Solr_Service
 		$httpTransport = $this->getHttpTransport();
 
 		$httpResponse = $httpTransport->performGetRequest($url, $timeout);
-		$solrResponse = new Apache_Solr_Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
+		$solrResponse = new \PTC\Apache\Solr\Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
 		if ($solrResponse->getHttpStatus() != 200)
 		{
-			throw new Apache_Solr_HttpTransportException($solrResponse);
+			throw new \PTC\Apache\Solr\HttpTransportException($solrResponse);
 		}
 
 		return $solrResponse;
@@ -357,11 +358,11 @@ class Apache_Solr_Service
 		$httpTransport = $this->getHttpTransport();
 
 		$httpResponse = $httpTransport->performPostRequest($url, $rawPost, $contentType, $timeout);
-		$solrResponse = new Apache_Solr_Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
+		$solrResponse = new \PTC\Apache\Solr\Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
 		if ($solrResponse->getHttpStatus() != 200)
 		{
-			throw new Apache_Solr_HttpTransportException($solrResponse);
+			throw new \PTC\Apache\Solr\HttpTransportException($solrResponse);
 		}
 
 		return $solrResponse;
@@ -389,7 +390,7 @@ class Apache_Solr_Service
 		//Use the provided host or use the default
 		if (empty($host))
 		{
-			throw new Apache_Solr_InvalidArgumentException('Host parameter is empty');
+			throw new \PTC\Apache\Solr\InvalidArgumentException('Host parameter is empty');
 		}
 		else
 		{
@@ -426,7 +427,7 @@ class Apache_Solr_Service
 
 		if ($port <= 0)
 		{
-			throw new Apache_Solr_InvalidArgumentException('Port is not a valid port number');
+			throw new \PTC\Apache\Solr\InvalidArgumentException('Port is not a valid port number');
 		}
 		else
 		{
@@ -485,7 +486,7 @@ class Apache_Solr_Service
 		{
 			require_once(dirname(__FILE__) . '/HttpTransport/FileGetContents.php');
 
-			$this->_httpTransport = new Apache_Solr_HttpTransport_FileGetContents();
+			$this->_httpTransport = new \PTC\Apache\Solr\HttpTransport\FileGetContents();
 		}
 
 		return $this->_httpTransport;
@@ -496,7 +497,7 @@ class Apache_Solr_Service
 	 *
 	 * @param Apache_Solr_HttpTransport_Interface
 	 */
-	public function setHttpTransport(Apache_Solr_HttpTransport_Interface $httpTransport)
+	public function setHttpTransport(\Apache_Solr_HttpTransport_Interface $httpTransport)
 	{
 		$this->_httpTransport = $httpTransport;
 	}
@@ -589,16 +590,16 @@ class Apache_Solr_Service
 	{
 		switch ((string) $namedListTreatment)
 		{
-			case Apache_Solr_Service::NAMED_LIST_FLAT:
-				$this->_namedListTreatment = Apache_Solr_Service::NAMED_LIST_FLAT;
+			case Service::NAMED_LIST_FLAT:
+				$this->_namedListTreatment = Service::NAMED_LIST_FLAT;
 				break;
 
-			case Apache_Solr_Service::NAMED_LIST_MAP:
-				$this->_namedListTreatment = Apache_Solr_Service::NAMED_LIST_MAP;
+			case Service::NAMED_LIST_MAP:
+				$this->_namedListTreatment = Service::NAMED_LIST_MAP;
 				break;
 
 			default:
-				throw new Apache_Solr_InvalidArgumentException('Not a valid named list treatement option');
+				throw new \PTC\Apache\Solr\InvalidArgumentException('Not a valid named list treatement option');
 		}
 	}
 
@@ -648,7 +649,7 @@ class Apache_Solr_Service
 		$httpTransport = $this->getHttpTransport();
 
 		$httpResponse = $httpTransport->performHeadRequest($this->_pingUrl, $timeout);
-		$solrResponse = new Apache_Solr_Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
+		$solrResponse = new \PTC\Apache\Solr\Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
 		if ($solrResponse->getHttpStatus() == 200)
 		{
@@ -711,7 +712,7 @@ class Apache_Solr_Service
 	 *
 	 * @throws Apache_Solr_HttpTransportException If an error occurs during the service call
 	 */
-	public function addDocument(Apache_Solr_Document $document, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 0)
+	public function addDocument(\PTC\Apache\Solr\Document $document, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 0)
 	{
 		$dupValue = $allowDups ? 'true' : 'false';
 		$pendingValue = $overwritePending ? 'true' : 'false';
@@ -752,7 +753,7 @@ class Apache_Solr_Service
 
 		foreach ($documents as $document)
 		{
-			if ($document instanceof Apache_Solr_Document)
+			if ($document instanceof \PTC\Apache\Solr\Document)
 			{
 				$rawPost .= $this->_documentToXmlFragment($document);
 			}
@@ -768,7 +769,7 @@ class Apache_Solr_Service
 	 *
 	 * @return string
 	 */
-	protected function _documentToXmlFragment(Apache_Solr_Document $document)
+	protected function _documentToXmlFragment(\PTC\Apache\Solr\Document $document)
 	{
 		$xml = '<doc';
 
@@ -978,7 +979,7 @@ class Apache_Solr_Service
 		{
 			if (!is_array($params))
 			{
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1008,7 +1009,7 @@ class Apache_Solr_Service
 		}
 		else
 		{
-			throw new Apache_Solr_InvalidArgumentException("File '{$file}' is empty or could not be read");
+			throw new \PTC\Apache\Solr\InvalidArgumentException("File '{$file}' is empty or could not be read");
 		}
 	}
 	
@@ -1039,7 +1040,7 @@ class Apache_Solr_Service
 		{
 			if (!is_array($params))
 			{
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1052,7 +1053,7 @@ class Apache_Solr_Service
 		$params['json.nl'] = $this->_namedListTreatment;
 
 		// check if $document is an Apache_Solr_Document instance
-		if (!is_null($document) && $document instanceof Apache_Solr_Document)
+		if (!is_null($document) && $document instanceof \PTC\Apache\Solr\Document)
 		{
 			// iterate document, adding literal.* and boost.* fields to $params as appropriate
 			foreach ($document as $field => $fieldValue)
@@ -1102,7 +1103,7 @@ class Apache_Solr_Service
 		{
 			if (!is_array($params))
 			{
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1129,7 +1130,7 @@ class Apache_Solr_Service
 		}
 		else
 		{
-			throw new Apache_Solr_InvalidArgumentException("URL '{$url}' returned non 200 response code");
+			throw new \PTC\Apache\Solr\InvalidArgumentException("URL '{$url}' returned non 200 response code");
 		}
 	}
 
@@ -1175,7 +1176,7 @@ class Apache_Solr_Service
 			if (!is_array($params))
 			{
 				// params was specified but was not an array - invalid
-				throw new Apache_Solr_InvalidArgumentException("\$params must be a valid array or null");
+				throw new \PTC\Apache\Solr\InvalidArgumentException("\$params must be a valid array or null");
 			}
 		}
 		else
@@ -1205,7 +1206,7 @@ class Apache_Solr_Service
 		}
 		else
 		{
-			throw new Apache_Solr_InvalidArgumentException("Unsupported method '$method', please use the Apache_Solr_Service::METHOD_* constants");
+			throw new \PTC\Apache\Solr\InvalidArgumentException("Unsupported method '$method', please use the Apache_Solr_Service::METHOD_* constants");
 		}
 	}
 }
