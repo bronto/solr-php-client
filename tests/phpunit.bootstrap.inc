@@ -19,10 +19,15 @@ set_include_path(
 	get_include_path()
 );
 
-// set up an autoload for Zend / Pear style class loading
 spl_autoload_register(
-	function($class)
-	{
-		include(str_replace("_", DIRECTORY_SEPARATOR, $class) . ".php");
-	}
+    function($class) {
+        if(strstr($class, 'PTC')) {
+            include __DIR__.'/../'.str_replace('\\', '/', str_replace('PTC\\', '', $class)).'.php';
+            return true;
+        }
+        else {
+            include(str_replace("_", DIRECTORY_SEPARATOR, $class) . ".php");
+        }
+        return false;
+    }
 );
