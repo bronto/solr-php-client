@@ -52,7 +52,7 @@ class Apache_Solr_DocumentTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function setup()
 	{
-		$this->_fixture = new Apache_Solr_Document();
+		$this->_fixture = new \PTC\Apache\Solr\Document();
 	}
 
 	/**

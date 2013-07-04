@@ -711,7 +711,7 @@ class Apache_Solr_Service
 	 *
 	 * @throws Apache_Solr_HttpTransportException If an error occurs during the service call
 	 */
-	public function addDocument(Apache_Solr_Document $document, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 0)
+	public function addDocument(\PTC\Apache\Solr\Document $document, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 0)
 	{
 		$dupValue = $allowDups ? 'true' : 'false';
 		$pendingValue = $overwritePending ? 'true' : 'false';
@@ -752,7 +752,7 @@ class Apache_Solr_Service
 
 		foreach ($documents as $document)
 		{
-			if ($document instanceof Apache_Solr_Document)
+			if ($document instanceof \PTC\Apache\Solr\Document)
 			{
 				$rawPost .= $this->_documentToXmlFragment($document);
 			}
@@ -768,7 +768,7 @@ class Apache_Solr_Service
 	 *
 	 * @return string
 	 */
-	protected function _documentToXmlFragment(Apache_Solr_Document $document)
+	protected function _documentToXmlFragment(\PTC\Apache\Solr\Document $document)
 	{
 		$xml = '<doc';
 
@@ -1052,7 +1052,7 @@ class Apache_Solr_Service
 		$params['json.nl'] = $this->_namedListTreatment;
 
 		// check if $document is an Apache_Solr_Document instance
-		if (!is_null($document) && $document instanceof Apache_Solr_Document)
+		if (!is_null($document) && $document instanceof \PTC\Apache\Solr\Document)
 		{
 			// iterate document, adding literal.* and boost.* fields to $params as appropriate
 			foreach ($document as $field => $fieldValue)

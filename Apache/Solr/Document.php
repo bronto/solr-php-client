@@ -54,7 +54,10 @@
  * }
  * </code>
  */
-class Apache_Solr_Document implements IteratorAggregate
+
+namespace PTC\Apache\Solr;
+
+class Document implements \IteratorAggregate
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -300,7 +303,7 @@ class Apache_Solr_Document implements IteratorAggregate
 	 */
 	public function getIterator()
 	{
-		$arrayObject = new ArrayObject($this->_fields);
+		$arrayObject = new \ArrayObject($this->_fields);
 
 		return $arrayObject->getIterator();
 	}

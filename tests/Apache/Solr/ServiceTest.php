@@ -533,7 +533,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$document = new Apache_Solr_Document();
+		$document = new \PTC\Apache\Solr\Document();
 		
 		$fixture->addDocument($document);
 	}
@@ -564,7 +564,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$document = new Apache_Solr_Document();
+		$document = new \PTC\Apache\Solr\Document();
 		
 		$fixture->addDocument($document, true, false, false, 3600);
 	}
@@ -595,7 +595,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$document = new Apache_Solr_Document();
+		$document = new \PTC\Apache\Solr\Document();
 
 		$document->guid = "global unique id";
 		$document->field = "value";
@@ -630,7 +630,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$document = new Apache_Solr_Document();
+		$document = new \PTC\Apache\Solr\Document();
 
 		$document->guid = "global unique id";
 		
@@ -669,7 +669,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$document = new Apache_Solr_Document();
+		$document = new \PTC\Apache\Solr\Document();
 		$document->setBoost(2);
 
 		$document->guid = "global unique id";
@@ -705,8 +705,8 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture->setHttpTransport($mockTransport);
 		
 		$documents = array(
-			new Apache_Solr_Document(),
-			new Apache_Solr_Document()
+			new \PTC\Apache\Solr\Document(),
+			new \PTC\Apache\Solr\Document()
 		);
 		
 		$fixture->addDocuments($documents);
@@ -739,8 +739,8 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture->setHttpTransport($mockTransport);
 		
 		$documents = array(
-			new Apache_Solr_Document(),
-			new Apache_Solr_Document()
+			new \PTC\Apache\Solr\Document(),
+			new \PTC\Apache\Solr\Document()
 		);
 		
 		$fixture->addDocuments($documents, true, false, false, 3600);
@@ -993,7 +993,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_Service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$literals = new Apache_Solr_Document();
+		$literals = new \PTC\Apache\Solr\Document();
 		$literals->field = "literal value";
 		$literals->setFieldBoost('field', 2);
 		

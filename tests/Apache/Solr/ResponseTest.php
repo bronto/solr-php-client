@@ -153,7 +153,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 		$fixture = self::get200ResponseWithDocuments();
 
 		$this->assertTrue(count($fixture->response->docs) > 0, 'There are not 1 or more documents, cannot test');
-		$this->assertInstanceOf('Apache_Solr_Document', $fixture->response->docs[0], 'The first document is not of type Apache_Solr_Document');
+		$this->assertInstanceOf('\PTC\Apache\Solr\Document', $fixture->response->docs[0], 'The first document is not of type Apache_Solr_Document');
 	}
 	
 	public function testDontCreateDocuments()

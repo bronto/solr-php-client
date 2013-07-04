@@ -215,7 +215,7 @@ class Apache_Solr_Response
 			{
 				if ($this->_createDocuments)
 				{
-					$document = new Apache_Solr_Document();
+					$document = new \PTC\Apache\Solr\Document();
 				}
 				else
 				{
