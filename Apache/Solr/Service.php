@@ -335,7 +335,7 @@ class Apache_Solr_Service
 
 		if ($solrResponse->getHttpStatus() != 200)
 		{
-			throw new Apache_Solr_HttpTransportException($solrResponse);
+			throw new \PTC\Apache\Solr\HttpTransportException($solrResponse);
 		}
 
 		return $solrResponse;
@@ -361,7 +361,7 @@ class Apache_Solr_Service
 
 		if ($solrResponse->getHttpStatus() != 200)
 		{
-			throw new Apache_Solr_HttpTransportException($solrResponse);
+			throw new \PTC\Apache\Solr\HttpTransportException($solrResponse);
 		}
 
 		return $solrResponse;

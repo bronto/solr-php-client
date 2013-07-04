@@ -391,7 +391,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_HttpTransportException
+	 * @expectedException \PTC\Apache\Solr\HttpTransportException
 	 */
 	public function testSystem404()
 	{
@@ -434,7 +434,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_HttpTransportException
+	 * @expectedException \PTC\Apache\Solr\HttpTransportException
 	 */
 	public function testThreads404()
 	{
@@ -481,7 +481,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	}
 	
 	/**
-	 * @expectedException Apache_Solr_HttpTransportException
+	 * @expectedException \PTC\Apache\Solr\HttpTransportException
 	 */
 	public function testAdd400()
 	{

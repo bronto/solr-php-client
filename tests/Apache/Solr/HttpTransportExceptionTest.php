@@ -45,13 +45,13 @@ class Apache_Solr_HttpTransportExceptionTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testConstructorRequiresResponse()
 	{
-		$fixture = new Apache_Solr_HttpTransportException();
+		$fixture = new \PTC\Apache\Solr\HttpTransportException();
 	}
 	
 	public function testGetResponse()
 	{
 		$response = Apache_Solr_ResponseTest::get0Response();
-		$fixture = new Apache_Solr_HttpTransportException($response);
+		$fixture = new \PTC\Apache\Solr\HttpTransportException($response);
 		
 		$this->assertEquals($response, $fixture->getResponse());
 	}

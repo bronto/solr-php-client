@@ -35,7 +35,9 @@
  * @author Donovan Jimenez
  */
 
-class Apache_Solr_HttpTransportException extends Apache_Solr_Exception
+namespace PTC\Apache\Solr;
+
+class HttpTransportException extends \Apache_Solr_Exception
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -59,7 +61,7 @@ class Apache_Solr_HttpTransportException extends Apache_Solr_Exception
 	 *
 	 * @param Apache_Solr_Response $response
 	 */
-	public function __construct(Apache_Solr_Response $response)
+	public function __construct(\Apache_Solr_Response $response)
 	{
 		parent::__construct("'{$response->getHttpStatus()}' Status: {$response->getHttpStatusMessage()}", $response->getHttpStatus());
 
