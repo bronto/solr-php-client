@@ -42,7 +42,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 {
 	public function getFixture()
 	{
-		return new Apache_Solr_Service();
+		return new \PTC\Apache\Solr\Service();
 	}
 	
 	public function getMockHttpTransportInterface()
@@ -66,7 +66,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	//================================================================//
 	public function testGetHttpTransportWithDefaultConstructor()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		$httpTransport = $fixture->getHttpTransport();
 		
@@ -78,7 +78,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	public function testSetHttpTransport()
 	{
 		$newTransport = new Apache_Solr_HttpTransport_Curl();
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		$fixture->setHttpTransport($newTransport);
 		$httpTransport = $fixture->getHttpTransport();
@@ -93,7 +93,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newTransport = new Apache_Solr_HttpTransport_Curl();
 		
-		$fixture = new Apache_Solr_Service('localhost', 8180, '/solr/', $newTransport);
+		$fixture = new \PTC\Apache\Solr\Service('localhost', 8180, '/solr/', $newTransport);
 		
 		$fixture->setHttpTransport($newTransport);
 		$httpTransport = $fixture->getHttpTransport();
@@ -122,18 +122,18 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$fixture = $this->getFixture();
 		
-		$this->assertEquals(Apache_Solr_Service::NAMED_LIST_MAP, $fixture->getNamedListTreatment());
+		$this->assertEquals(\PTC\Apache\Solr\Service::NAMED_LIST_MAP, $fixture->getNamedListTreatment());
 	}
 	
 	public function testSetNamedListTreatment()
 	{
 		$fixture = $this->getFixture();
 		
-		$fixture->setNamedListTreatment(Apache_Solr_Service::NAMED_LIST_FLAT);
-		$this->assertEquals(Apache_Solr_Service::NAMED_LIST_FLAT, $fixture->getNamedListTreatment());
+		$fixture->setNamedListTreatment(\PTC\Apache\Solr\Service::NAMED_LIST_FLAT);
+		$this->assertEquals(\PTC\Apache\Solr\Service::NAMED_LIST_FLAT, $fixture->getNamedListTreatment());
 		
-		$fixture->setNamedListTreatment(Apache_Solr_Service::NAMED_LIST_MAP);
-		$this->assertEquals(Apache_Solr_Service::NAMED_LIST_MAP, $fixture->getNamedListTreatment());
+		$fixture->setNamedListTreatment(\PTC\Apache\Solr\Service::NAMED_LIST_MAP);
+		$this->assertEquals(\PTC\Apache\Solr\Service::NAMED_LIST_MAP, $fixture->getNamedListTreatment());
 	}
 	
 	/**
@@ -154,14 +154,14 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 
 	public function testConstructorDefaultArguments()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
-		$this->assertInstanceOf('Apache_Solr_Service', $fixture);
+		$this->assertInstanceOf('\PTC\Apache\Solr\Service', $fixture);
 	}
 
 	public function testGetHostWithDefaultConstructor()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$host = $fixture->getHost();
 		
 		$this->assertEquals("localhost", $host);
@@ -171,7 +171,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newHost = "example.com";
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHost($newHost);
 		$host = $fixture->getHost();
 		
@@ -183,7 +183,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	 */
 	public function testSetEmptyHost()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		// should throw an invalid argument exception
 		$fixture->setHost("");
@@ -193,7 +193,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newHost = "example.com";
 		
-		$fixture = new Apache_Solr_Service($newHost);
+		$fixture = new \PTC\Apache\Solr\Service($newHost);
 		$host = $fixture->getHost();
 		
 		$this->assertEquals($newHost, $host);
@@ -201,7 +201,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	
 	public function testGetPortWithDefaultConstructor()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$port = $fixture->getPort();
 		
 		$this->assertEquals(8180, $port);
@@ -211,7 +211,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newPort = 12345;
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setPort($newPort);
 		$port = $fixture->getPort();
 		
@@ -223,7 +223,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	 */
 	public function testSetPortWithInvalidArgument()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		$fixture->setPort("broken");
 	}
@@ -232,7 +232,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newPort = 12345;
 		
-		$fixture = new Apache_Solr_Service('locahost', $newPort);
+		$fixture = new \PTC\Apache\Solr\Service('locahost', $newPort);
 		$port = $fixture->getPort();
 		
 		$this->assertEquals($newPort, $port);
@@ -240,7 +240,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		
 	public function testGetPathWithDefaultConstructor()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$path = $fixture->getPath();
 		
 		$this->assertEquals("/solr/", $path);
@@ -250,7 +250,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newPath = "/new/path/";
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setPath($newPath);
 		$path = $fixture->getPath();
 		
@@ -262,7 +262,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$newPath = "new/path";
 		$containedPath = "/{$newPath}/";
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setPath($newPath);
 		$path = $fixture->getPath();
 		
@@ -273,7 +273,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	{
 		$newPath = "/new/path/";
 		
-		$fixture = new Apache_Solr_Service('localhost', 8180, $newPath);
+		$fixture = new \PTC\Apache\Solr\Service('localhost', 8180, $newPath);
 		$path = $fixture->getPath();
 		
 		$this->assertEquals($newPath, $path);
@@ -282,7 +282,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	
 	public function testGetDefaultTimeoutCallsThroughToTransport()
 	{
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
@@ -298,7 +298,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	public function testSetDefaultTimeoutCallsThroughToTransport()
 	{
 		$timeout = 12345;
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
@@ -315,7 +315,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$username = "user";
 		$password = "password";
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
@@ -342,7 +342,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
 		// call ping 
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$time = $fixture->ping();
 		
@@ -364,7 +364,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get0Response()));
 		
 		// call ping 
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$this->assertFalse($fixture->ping());
@@ -385,7 +385,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
 		// call system
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->system();
 	}
@@ -408,7 +408,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get404Response()));
 		
 		// call system
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->system();
 	}
@@ -428,7 +428,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
 		// call threads
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->threads();
 	}
@@ -451,7 +451,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get404Response()));
 		
 		// call threads
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->threads();
 	}
@@ -475,7 +475,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
 		// call add
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->add($postData);
 	}
@@ -502,7 +502,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get400Response()));
 		
 		// call add
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->add($postData);
 	}
@@ -530,7 +530,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$document = new \PTC\Apache\Solr\Document();
@@ -561,7 +561,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$document = new \PTC\Apache\Solr\Document();
@@ -592,7 +592,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$document = new \PTC\Apache\Solr\Document();
@@ -627,7 +627,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$document = new \PTC\Apache\Solr\Document();
@@ -666,7 +666,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$document = new \PTC\Apache\Solr\Document();
@@ -701,7 +701,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$documents = array(
@@ -735,7 +735,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$documents = array(
@@ -769,7 +769,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->commit();
@@ -798,7 +798,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->commit(true, false, false, 7200);
@@ -823,7 +823,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
 		// call add
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		$fixture->delete($postData);
 	}
@@ -838,7 +838,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performPostRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->deleteById("does not exist");
@@ -854,7 +854,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performPostRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->deleteByMultipleIds(array(1, 2, 3));
@@ -870,7 +870,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performPostRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->deleteByQuery("*:*");
@@ -894,7 +894,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->with($this->equalTo($expectedUrl), $this->equalTo($expectedPostData), $this->equalTo($expectedContentType), $this->equalTo($expectedTimeout))
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extract($extractFile);
@@ -910,7 +910,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
 
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extract($extractFile, "invalid");
@@ -926,7 +926,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
 
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extractFromString($extractFileData, "invalid");
@@ -950,7 +950,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->with($this->equalTo($expectedUrl), $this->equalTo($expectedPostData), $this->equalTo($expectedContentType), $this->equalTo($expectedTimeout))
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extract($extractFile, null);
@@ -966,7 +966,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
 				
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extract($extractFile);
@@ -990,7 +990,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->with($this->equalTo($expectedUrl), $this->equalTo($expectedPostData), $this->equalTo($expectedContentType), $this->equalTo($expectedTimeout))
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$literals = new \PTC\Apache\Solr\Document();
@@ -1030,7 +1030,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extract($extractUrl);
@@ -1066,7 +1066,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			)
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extractFromUrl($extractUrl);
@@ -1082,7 +1082,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
 			
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->extractFromUrl($extractUrl, "invalid");
@@ -1098,7 +1098,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performPostRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_Service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->optimize();
@@ -1114,7 +1114,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performGetRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->search("solr");
@@ -1128,7 +1128,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		// set a mock transport
 		$mockTransport = $this->getMockHttpTransportInterface();
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->search("solr", 0, 10, "invalid");
@@ -1146,7 +1146,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performGetRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
 		$fixture->search("solr", 0, 10, null);
@@ -1162,10 +1162,10 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 			->method('performPostRequest')
 			->will($this->returnValue(Apache_Solr_HttpTransport_ResponseTest::get200Response()));
 		
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$fixture->search("solr", 0, 10, array(), Apache_Solr_Service::METHOD_POST);
+		$fixture->search("solr", 0, 10, array(), \PTC\Apache\Solr\Service::METHOD_POST);
 	}
 	
 	/**
@@ -1173,7 +1173,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	 */
 	public function testSearchWithInvalidMethod()
 	{
-		$fixture = new Apache_Solr_service();
+		$fixture = new \PTC\Apache\Solr\Service();
 		
 		$fixture->search("solr", 0, 10, array(), "INVALID METHOD");
 	}

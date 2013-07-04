@@ -90,7 +90,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	static public function escape($value)
 	{
-		return Apache_Solr_Service::escape($value);
+		return \PTC\Apache\Solr\Service::escape($value);
 	}
 
 	/**
@@ -101,7 +101,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	static public function escapePhrase($value)
 	{
-		return Apache_Solr_Service::escapePhrase($value);
+		return \PTC\Apache\Solr\Service::escapePhrase($value);
 	}
 
 	/**
@@ -112,7 +112,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	static public function phrase($value)
 	{
-		return Apache_Solr_Service::phrase($value);
+		return \PTC\Apache\Solr\Service::phrase($value);
 	}
 
 	/**
@@ -242,7 +242,7 @@ class Apache_Solr_Service_Balancer
 	 */
 	public function addWriteService($service)
 	{
-		if ($service instanceof Apache_Solr_Service)
+		if ($service instanceof \PTC\Apache\Solr\Service)
 		{
 			$id = $this->_getServiceId($service->getHost(), $service->getPort(), $service->getPath());
 
@@ -274,7 +274,7 @@ class Apache_Solr_Service_Balancer
 	{
 		$id = '';
 
-		if ($service instanceof Apache_Solr_Service)
+		if ($service instanceof \PTC\Apache\Solr\Service)
 		{
 			$id = $this->_getServiceId($service->getHost(), $service->getPort(), $service->getPath());
 		}
@@ -332,7 +332,7 @@ class Apache_Solr_Service_Balancer
 				if (is_array($service))
 				{
 					//convert the array definition to a client object
-					$service = new Apache_Solr_Service($service['host'], $service['port'], $service['path']);
+					$service = new \PTC\Apache\Solr\Service($service['host'], $service['port'], $service['path']);
 					$this->_readableServices[$id] = $service;
 				}
 
@@ -385,7 +385,7 @@ class Apache_Solr_Service_Balancer
 				if (is_array($service))
 				{
 					//convert the array definition to a client object
-					$service = new Apache_Solr_Service($service['host'], $service['port'], $service['path']);
+					$service = new \PTC\Apache\Solr\Service($service['host'], $service['port'], $service['path']);
 					$this->_writeableServices[$id] = $service;
 				}
 
@@ -430,7 +430,7 @@ class Apache_Solr_Service_Balancer
 					if (is_array($service))
 					{
 						//convert the array definition to a client object
-						$service = new Apache_Solr_Service($service['host'], $service['port'], $service['path']);
+						$service = new \PTC\Apache\Solr\Service($service['host'], $service['port'], $service['path']);
 						$this->_writeableServices[$id] = $service;
 					}
 

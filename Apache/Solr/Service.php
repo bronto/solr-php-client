@@ -35,6 +35,7 @@
  * @author Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr;
 // See Issue #1 (http://code.google.com/p/solr-php-client/issues/detail?id=1)
 // Doesn't follow typical include path conventions, but is more convenient for users
 require_once(dirname(__FILE__) . '/Exception.php');
@@ -76,7 +77,7 @@ require_once(dirname(__FILE__) . '/HttpTransport/Interface.php');
  * ...
  * </code>
  */
-class Apache_Solr_Service
+class Service
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -485,7 +486,7 @@ class Apache_Solr_Service
 		{
 			require_once(dirname(__FILE__) . '/HttpTransport/FileGetContents.php');
 
-			$this->_httpTransport = new Apache_Solr_HttpTransport_FileGetContents();
+			$this->_httpTransport = new \Apache_Solr_HttpTransport_FileGetContents();
 		}
 
 		return $this->_httpTransport;
@@ -496,7 +497,7 @@ class Apache_Solr_Service
 	 *
 	 * @param Apache_Solr_HttpTransport_Interface
 	 */
-	public function setHttpTransport(Apache_Solr_HttpTransport_Interface $httpTransport)
+	public function setHttpTransport(\Apache_Solr_HttpTransport_Interface $httpTransport)
 	{
 		$this->_httpTransport = $httpTransport;
 	}
@@ -589,12 +590,12 @@ class Apache_Solr_Service
 	{
 		switch ((string) $namedListTreatment)
 		{
-			case Apache_Solr_Service::NAMED_LIST_FLAT:
-				$this->_namedListTreatment = Apache_Solr_Service::NAMED_LIST_FLAT;
+			case Service::NAMED_LIST_FLAT:
+				$this->_namedListTreatment = Service::NAMED_LIST_FLAT;
 				break;
 
-			case Apache_Solr_Service::NAMED_LIST_MAP:
-				$this->_namedListTreatment = Apache_Solr_Service::NAMED_LIST_MAP;
+			case Service::NAMED_LIST_MAP:
+				$this->_namedListTreatment = Service::NAMED_LIST_MAP;
 				break;
 
 			default:
