@@ -204,7 +204,7 @@ class Response
 		// check that we receive a valid JSON response - we should never receive a null
 		if ($data === null)
 		{
-			throw new \Apache_Solr_ParserException('Solr response does not appear to be valid JSON, please examine the raw response with getRawResponse() method');
+			throw new \PTC\Apache\Solr\ParserException('Solr response does not appear to be valid JSON, please examine the raw response with getRawResponse() method');
 		}
 
 		//if we're configured to collapse single valued arrays or to convert them to Apache_Solr_Document objects

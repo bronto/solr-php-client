@@ -107,7 +107,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Apache_Solr_ParserException
+	 * @expectedException \PTC\Apache\Solr\ParserException
 	 */
 	public function testMagicGetWith0Response()
 	{
@@ -121,7 +121,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Apache_Solr_ParserException
+	 * @expectedException \PTC\Apache\Solr\ParserException
 	 */
 	public function testMagicGetWith400Response()
 	{
@@ -135,7 +135,7 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Apache_Solr_ParserException
+	 * @expectedException \PTC\Apache\Solr\ParserException
 	 */
 	public function testMagicGetWith404Response()
 	{
