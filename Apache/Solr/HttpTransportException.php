@@ -61,7 +61,7 @@ class HttpTransportException extends \Apache_Solr_Exception
 	 *
 	 * @param Apache_Solr_Response $response
 	 */
-	public function __construct(\Apache_Solr_Response $response)
+	public function __construct(\PTC\Apache\Solr\Response $response)
 	{
 		parent::__construct("'{$response->getHttpStatus()}' Status: {$response->getHttpStatusMessage()}", $response->getHttpStatus());
 

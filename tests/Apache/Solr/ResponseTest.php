@@ -42,27 +42,27 @@ class Apache_Solr_ResponseTest extends PHPUnit_Framework_TestCase
 {
 	static public function get0Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get0Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get0Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get200Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get200Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get200Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get200ResponseWithDocuments($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get200ResponseWithDocuments(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get200ResponseWithDocuments(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get400Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get400Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get400Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	static public function get404Response($createDocuments = true, $collapseSingleValueArrays = true)
 	{
-		return new Apache_Solr_Response(Apache_Solr_HttpTransport_ResponseTest::get404Response(), $createDocuments, $collapseSingleValueArrays);
+		return new \PTC\Apache\Solr\Response(Apache_Solr_HttpTransport_ResponseTest::get404Response(), $createDocuments, $collapseSingleValueArrays);
 	}
 
 	public function testConstuctorWithValidBodyAndHeaders()

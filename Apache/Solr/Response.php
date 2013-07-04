@@ -34,6 +34,7 @@
  * @subpackage Solr
  * @author Donovan Jimenez
  */
+namespace PTC\Apache\Solr;
 
 require_once(dirname(__FILE__) . '/ParserException.php');
 
@@ -44,7 +45,8 @@ require_once(dirname(__FILE__) . '/ParserException.php');
  * Currently requires json_decode which is bundled with PHP >= 5.2.0, Alternatively can be
  * installed with PECL.  Zend Framework also includes a purely PHP solution.
  */
-class Apache_Solr_Response
+
+class Response
 {
 	/**
 	 * SVN Revision meta data for this class
@@ -93,7 +95,7 @@ class Apache_Solr_Response
 	 * @param boolean $createDocuments Whether to convert the documents json_decoded as stdClass instances to Apache_Solr_Document instances
 	 * @param boolean $collapseSingleValueArrays Whether to make multivalued fields appear as single values
 	 */
-	public function __construct(Apache_Solr_HttpTransport_Response $response, $createDocuments = true, $collapseSingleValueArrays = true)
+	public function __construct(\Apache_Solr_HttpTransport_Response $response, $createDocuments = true, $collapseSingleValueArrays = true)
 	{
 		$this->_response = $response;
 		$this->_createDocuments = (bool) $createDocuments;
@@ -202,7 +204,7 @@ class Apache_Solr_Response
 		// check that we receive a valid JSON response - we should never receive a null
 		if ($data === null)
 		{
-			throw new Apache_Solr_ParserException('Solr response does not appear to be valid JSON, please examine the raw response with getRawResponse() method');
+			throw new \Apache_Solr_ParserException('Solr response does not appear to be valid JSON, please examine the raw response with getRawResponse() method');
 		}
 
 		//if we're configured to collapse single valued arrays or to convert them to Apache_Solr_Document objects

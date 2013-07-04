@@ -331,7 +331,7 @@ class Apache_Solr_Service
 		$httpTransport = $this->getHttpTransport();
 
 		$httpResponse = $httpTransport->performGetRequest($url, $timeout);
-		$solrResponse = new Apache_Solr_Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
+		$solrResponse = new \PTC\Apache\Solr\Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
 		if ($solrResponse->getHttpStatus() != 200)
 		{
@@ -357,7 +357,7 @@ class Apache_Solr_Service
 		$httpTransport = $this->getHttpTransport();
 
 		$httpResponse = $httpTransport->performPostRequest($url, $rawPost, $contentType, $timeout);
-		$solrResponse = new Apache_Solr_Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
+		$solrResponse = new \PTC\Apache\Solr\Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
 		if ($solrResponse->getHttpStatus() != 200)
 		{
@@ -648,7 +648,7 @@ class Apache_Solr_Service
 		$httpTransport = $this->getHttpTransport();
 
 		$httpResponse = $httpTransport->performHeadRequest($this->_pingUrl, $timeout);
-		$solrResponse = new Apache_Solr_Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
+		$solrResponse = new \PTC\Apache\Solr\Response($httpResponse, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
 		if ($solrResponse->getHttpStatus() == 200)
 		{
