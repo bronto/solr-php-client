@@ -37,14 +37,14 @@
 
 namespace PTC\Apache\Solr\HttpTransport;
 // Require Apache_Solr_HttpTransport_Abstract
-require_once(dirname(__FILE__) . '/Abstract.php');
+require_once(dirname(__FILE__) . '/../HttpTransportAbstract.php');
 
 /**
  * An alternative Curl HTTP transport that opens and closes a curl session for
  * every request. This isn't the recommended way to use curl, but some version of
  * PHP have memory issues.
  */
-class CurlNoReuse extends \Apache_Solr_HttpTransport_Abstract
+class CurlNoReuse extends \PTC\Apache\Solr\HttpTransportAbstract
 {
 	/**
 	 * SVN Revision meta data for this class

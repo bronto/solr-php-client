@@ -37,12 +37,12 @@
 
 namespace PTC\Apache\Solr\HttpTransport;
 // Require Apache_Solr_HttpTransport_Abstract
-require_once(dirname(__FILE__) . '/Abstract.php');
+require_once(dirname(__FILE__) . '/../HttpTransportAbstract.php');
 
 /**
  * HTTP Transport implemenation that uses the builtin http URL wrappers and file_get_contents
  */
-class FileGetContents extends \Apache_Solr_HttpTransport_Abstract
+class FileGetContents extends \PTC\Apache\Solr\HttpTransportAbstract
 {
 	/**
 	 * SVN Revision meta data for this class

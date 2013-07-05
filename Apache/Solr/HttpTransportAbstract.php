@@ -35,11 +35,13 @@
  * @author Timo Schmidt <timo.schmidt@aoemedia.de>, Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr;
+require_once __DIR__.'/HttpTransportInterface.php';
 /**
  * Convenience class that implements the transport implementation. Can be extended by
  * real implementations to do some of the common book keeping
  */
-abstract class Apache_Solr_HttpTransport_Abstract implements Apache_Solr_HttpTransport_Interface
+abstract class HttpTransportAbstract implements HttpTransportInterface
 {	
 	/**
 	 * Our default timeout value for requests that don't specify a timeout

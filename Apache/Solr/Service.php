@@ -45,7 +45,7 @@ require_once(dirname(__FILE__) . '/InvalidArgumentException.php');
 require_once(dirname(__FILE__) . '/Document.php');
 require_once(dirname(__FILE__) . '/Response.php');
 
-require_once(dirname(__FILE__) . '/HttpTransport/Interface.php');
+require_once(dirname(__FILE__) . '/HttpTransportInterface.php');
 
 /**
  * Starting point for the Solr API. Represents a Solr server resource and has
@@ -497,7 +497,7 @@ class Service
 	 *
 	 * @param Apache_Solr_HttpTransport_Interface
 	 */
-	public function setHttpTransport(\Apache_Solr_HttpTransport_Interface $httpTransport)
+	public function setHttpTransport(\PTC\Apache\Solr\HttpTransportInterface $httpTransport)
 	{
 		$this->_httpTransport = $httpTransport;
 	}

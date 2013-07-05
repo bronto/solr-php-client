@@ -37,12 +37,12 @@
 
 namespace PTC\Apache\Solr\HttpTransport;
 // Require Apache_Solr_HttpTransport_Abstract
-require_once(dirname(__FILE__) . '/Abstract.php');
+require_once(dirname(__FILE__) . '/../HttpTransportAbstract.php');
 
 /**
  * A Curl based HTTP transport. Uses a single curl session for all requests.
  */
-class Curl extends \Apache_Solr_HttpTransport_Abstract
+class Curl extends \PTC\Apache\Solr\HttpTransportAbstract
 {
 	/**
 	 * SVN Revision meta data for this class

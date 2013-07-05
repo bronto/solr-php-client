@@ -48,7 +48,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 	public function getMockHttpTransportInterface()
 	{
 		return $this->getMock(
-			'Apache_Solr_HttpTransport_Interface',
+			'\PTC\Apache\Solr\HttpTransportInterface',
 			array(
 				'getDefaultTimeout',
 				'setDefaultTimeout',
@@ -70,7 +70,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		
 		$httpTransport = $fixture->getHttpTransport();
 		
-		$this->assertInstanceOf('Apache_Solr_HttpTransport_Interface', $httpTransport, 'Default http transport does not implement interface');
+		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransportInterface', $httpTransport, 'Default http transport does not implement interface');
 		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransport\FileGetContents', $httpTransport, 'Default http transport is not URL Wrapper implementation');
 	}
 	
@@ -83,7 +83,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture->setHttpTransport($newTransport);
 		$httpTransport = $fixture->getHttpTransport();
 		
-		$this->assertInstanceOf('Apache_Solr_HttpTransport_Interface', $httpTransport);
+		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransportInterface', $httpTransport);
 		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransport\Curl', $httpTransport);
 		$this->assertEquals($newTransport, $httpTransport);
 		
@@ -98,7 +98,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture->setHttpTransport($newTransport);
 		$httpTransport = $fixture->getHttpTransport();
 		
-		$this->assertInstanceOf('Apache_Solr_HttpTransport_Interface', $httpTransport);
+		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransportInterface', $httpTransport);
 		$this->assertInstanceOf('\PTC\Apache\Solr\HttpTransport\Curl', $httpTransport);
 		$this->assertEquals($newTransport, $httpTransport);
 	}

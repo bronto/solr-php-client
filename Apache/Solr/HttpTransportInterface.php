@@ -35,6 +35,7 @@
  * @author Timo Schmidt <timo.schmidt@aoemedia.de>, Donovan Jimenez
  */
 
+namespace PTC\Apache\Solr;
 // require Apache_Solr_HttpTransport_Response
 require_once(dirname(__FILE__) . '/Response.php');
 
@@ -43,7 +44,7 @@ require_once(dirname(__FILE__) . '/Response.php');
  * Implementations can then be plugged into the Service instance in order to user their
  * the desired method for making HTTP requests
  */
-interface Apache_Solr_HttpTransport_Interface
+interface HttpTransportInterface
 {
 	/**
 	 * Get the current default timeout for all HTTP requests
