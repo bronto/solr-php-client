@@ -349,7 +349,7 @@ class Apache_Solr_Service
 
         if ($this->_returnAsArray)
         {
-            return json_decode($solrResponse->getBody(), true);
+            return json_decode($httpResponse->getBody(), true);
         }
 
 		return $solrResponse;
@@ -380,7 +380,7 @@ class Apache_Solr_Service
 
         if ($this->_returnAsArray)
         {
-            return json_decode($solrResponse->getBody(), true);
+            return json_decode($httpResponse->getBody(), true);
         }
 
 		return $solrResponse;
