@@ -143,6 +143,15 @@ class Apache_Solr_Service
 	 */
 	protected $_collapseSingleValueArrays = true;
 
+
+    /**
+     * Whether to skip creation of {@link Apache_Solr_Response} object, and return an array instead
+     *
+     * @var boolean
+     */
+    protected $_returnAsArray = false;
+
+
 	/**
 	 * How NamedLists should be formatted in the output.  This specifically effects facet counts. Valid values
 	 * are {@link Apache_Solr_Service::NAMED_LIST_MAP} (default) or {@link Apache_Solr_Service::NAMED_LIST_FLAT}.
@@ -338,6 +347,11 @@ class Apache_Solr_Service
 			throw new Apache_Solr_HttpTransportException($solrResponse);
 		}
 
+        if ($this->_returnAsArray)
+        {
+            return json_decode($solrResponse->getBody(), true);
+        }
+
 		return $solrResponse;
 	}
 
@@ -363,6 +377,11 @@ class Apache_Solr_Service
 		{
 			throw new Apache_Solr_HttpTransportException($solrResponse);
 		}
+
+        if ($this->_returnAsArray)
+        {
+            return json_decode($solrResponse->getBody(), true);
+        }
 
 		return $solrResponse;
 	}
@@ -541,6 +560,25 @@ class Apache_Solr_Service
 	{
 		return $this->_collapseSingleValueArrays;
 	}
+
+
+    /**
+     * @param boolean
+     */
+    public function setReturnAsArray($returnAsArray)
+    {
+        $this->_returnAsArray = $returnAsArray;
+    }
+
+
+    /**
+     * @return boolean
+     */
+    public function getReturnAsArray()
+    {
+        return $this->_returnAsArray;
+    }
+
 
 	/**
 	 * Get the current default timeout setting (initially the default_socket_timeout ini setting)
