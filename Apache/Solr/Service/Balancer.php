@@ -586,16 +586,14 @@ class Apache_Solr_Service_Balancer
 	}
 
 	/**
-	 * Send a commit command.  Will be synchronous unless both wait parameters are set
-	 * to false.
+	 * Send a commit command.  Will be synchronous unless wait parameter are is set to false.
 	 *
-	 * @param boolean $waitFlush
 	 * @param boolean $waitSearcher
 	 * @return Apache_Solr_Response
 	 *
 	 * @throws Apache_Solr_HttpTransportException If an error occurs during the service call
 	 */
-	public function commit($optimize = true, $waitFlush = true, $waitSearcher = true, $timeout = 3600)
+	public function commit($optimize = true, $waitSearcher = true, $timeout = 3600)
 	{
 		$service = $this->_selectWriteService();
 
@@ -603,7 +601,7 @@ class Apache_Solr_Service_Balancer
 		{
 			try
 			{
-				return $service->commit($optimize, $waitFlush, $waitSearcher, $timeout);
+				return $service->commit($optimize, $waitSearcher, $timeout);
 			}
 			catch (Apache_Solr_HttpTransportException $e)
 			{
@@ -845,17 +843,15 @@ class Apache_Solr_Service_Balancer
 	}
 	
 	/**
-	 * Send an optimize command.  Will be synchronous unless both wait parameters are set
-	 * to false.
+	 * Send an optimize command.  Will be synchronous unless wait parameter is set to false.
 	 *
-	 * @param boolean $waitFlush
 	 * @param boolean $waitSearcher
 	 * @param float $timeout Maximum expected duration of the optimize operation on the server (otherwise, will throw a communication exception)
 	 * @return Apache_Solr_Response
 	 *
 	 * @throws Apache_Solr_HttpTransportException If an error occurs during the service call
 	 */
-	public function optimize($waitFlush = true, $waitSearcher = true, $timeout = 3600)
+	public function optimize($waitSearcher = true, $timeout = 3600)
 	{
 		$service = $this->_selectWriteService();
 
@@ -863,7 +859,7 @@ class Apache_Solr_Service_Balancer
 		{
 			try
 			{
-				return $service->optimize($waitFlush, $waitSearcher, $timeout);
+				return $service->optimize($waitSearcher, $timeout);
 			}
 			catch (Apache_Solr_HttpTransportException $e)
 			{

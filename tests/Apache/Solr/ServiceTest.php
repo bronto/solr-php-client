@@ -759,7 +759,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 				$this->equalTo('http://localhost:8180/solr/update?wt=json'),
 				
 				// raw post
-				$this->equalTo('<commit expungeDeletes="false" waitFlush="true" waitSearcher="true" />'),
+				$this->equalTo('<commit expungeDeletes="false" waitSearcher="true" />'),
 				
 				// content type
 				$this->equalTo('text/xml; charset=UTF-8'),
@@ -788,7 +788,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 				$this->equalTo('http://localhost:8180/solr/update?wt=json'),
 				
 				// raw post
-				$this->equalTo('<commit expungeDeletes="true" waitFlush="false" waitSearcher="false" />'),
+				$this->equalTo('<commit expungeDeletes="true" waitSearcher="false" />'),
 				
 				// content type
 				$this->equalTo('text/xml; charset=UTF-8'),
@@ -801,7 +801,7 @@ class Apache_Solr_ServiceTest extends Apache_Solr_ServiceAbstractTest
 		$fixture = new Apache_Solr_Service();
 		$fixture->setHttpTransport($mockTransport);
 		
-		$fixture->commit(true, false, false, 7200);
+		$fixture->commit(true, false, 7200);
 	}
 	
 	public function testDelete()
