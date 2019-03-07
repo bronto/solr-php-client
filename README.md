@@ -1,5 +1,7 @@
 # Solr PHP Client
 
+**This project is no longer maintained and should be used for historical purposes only.**
+
 A purely PHP library for indexing and searching documents against an Apache Solr 4.4.0 installation.
 
 This project was formerly maintained at [http://code.google.com/p/solr-php-client](http://code.google.com/p/solr-php-client).  Previous issues and downloads are still available for viewing there.
